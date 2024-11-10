@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT Notes</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevents scroll bars due to animation */
+            animation: changeBg 5s infinite; /* Background color changes every 5 seconds */
+        }
+
+        /* Keyframes to animate the background color */
+        @keyframes changeBg {
+            0% { background-color: #ff6f61; }  /* Soft red */
+            25% { background-color: #6fffb0; } /* Light green */
+            50% { background-color: #6fcfff; } /* Light blue */
+            75% { background-color: #ffeb6f; } /* Light yellow */
+            100% { background-color: #ff6fdf; } /* Soft pink */
+        }
+
+        .neon-box {
+            position: relative;
+            padding: 40px 60px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            font-size: 2em;
+            border: 3px solid #00ffea;
+            text-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea, 0 0 45px #00ffea, 0 0 60px #00ffea;
+            box-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea, 0 0 60px #00ffea;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the neon box */
+            border-radius: 15px; /* Rounded corners */
+            z-index: 2;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #00ffea, 0 0 10px #00ffea, 0 0 15px #00ffea;
+                box-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+            }
+            to {
+                text-shadow: 0 0 30px #00ffea, 0 0 60px #00ffea;
+                box-shadow: 0 0 40px #00ffea, 0 0 80px #00ffea;
+            }
+        }
+
+        .neon-box p {
+            margin: 0;
+            font-size: 0.6em;
+        }
+
+        /* Emoji animation: change between sad and happy every 2 seconds */
+        .emoji {
+            font-size: 1.5em;
+            display: block;
+            margin-bottom: 10px;
+            animation: changeEmoji 2s infinite;
+        }
+
+        @keyframes changeEmoji {
+            0% { content: "😔"; } /* Sad face */
+            50% { content: "😊"; } /* Happy face */
+        }
+
+        /* For compatibility with older browsers */
+        .emoji::before {
+            content: "😔";
+            animation: changeEmoji 2s infinite;
+        }
+
+        /* Heart icons floating in the background */
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+            color: red;
+            animation: floatUp 5s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+                transform: translateX(0);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+                transform: translateX(50px); /* Horizontal drift */
+            }
+        }
+
+        /* Randomly position the hearts */
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 6s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 7s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 8s; }
+
+        @media only screen and (max-width: 768px) {
+            .neon-box {
+                font-size: 1.5em;
+                padding: 30px 40px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .neon-box {
+                font-size: 1.2em;
+                padding: 20px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating heart icons -->
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+
+    <div class="neon-box">
+        <span class="emoji"></span> <!-- Emoji that changes between sad and happy -->
+        <p>Sorry, this page has an issue ... Fix Soon !!!</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 11 Managment</title>
+    
+    <!-- Google Font: Poppins for a clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Cleaner, modern font */
+            background-color: #0d0d0d;
+            color: rgb(6, 6, 6);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Bubble effect background */
+        .bubble-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 255, 153, 0.3); /* Green bubbles */
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        .bubble:nth-child(2) {
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(3) {
+            left: 35%;
+            width: 80px;
+            height: 80px;
+            animation-duration: 12s;
+        }
+
+        .bubble:nth-child(4) {
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            animation-duration: 9s;
+        }
+
+        .bubble:nth-child(5) {
+            left: 70%;
+            width: 70px;
+            height: 70px;
+            animation-duration: 15s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #00ff66; /* Neon green */
+            text-align: center;
+            text-shadow: 0 0 15px #00ff66, 0 0 30px #99ff99;
+            margin-bottom: 40px;
+        }
+
+        /* Neon glow animation */
+        @keyframes neonGlow {
+            0% { box-shadow: 0 0 10px #00ff66, 0 0 20px #00ff66; }
+            100% { box-shadow: 0 0 25px #00ff66, 0 0 40px #00ff66; }
+        }
+
+        /* Semester Styling with Unique Colors */
+        .semester {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 15px;
+            animation: neonGlow 1.5s infinite alternate;
+        }
+
+        .semester h2 {
+            padding: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Color change for each semester */
+        .semester.semester-1 h2 {
+            background: linear-gradient(45deg, #00ff66, #99ff99);
+        }
+
+       
+
+        /* Subject styling */
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            align-items: center;
+        }
+
+        .subject-item {
+            background-color: #0d0d0d;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+            position: relative;
+            text-align: center;
+            align-items: center;
+        }
+
+        .subject-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #ff3333, 0 0 40px #ff6666; /* Red glow on hover */
+        }
+
+        .subject-item a {
+            color: #ff3333; /* Red font for subjects */
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        /* Blue underline and heart animation */
+        .subject-item a::after {
+            content: '❤️'; /* Heart symbol */
+            font-size: 16px;
+            color: transparent; /* Initially hidden */
+            position: absolute;
+            right: -25px;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s ease-in-out;
+            transform: scale(0.5);
+        }
+
+        .subject-item a:hover {
+            color: #0066ff; /* Blue text on hover */
+            transform: translateY(-2px); /* Lift the text slightly */
+        }
+
+        .subject-item a:hover::after {
+            color: #ff3333; /* Red heart on hover */
+            opacity: 1;
+            transform: scale(1.3); /* Make the heart bigger */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .subjects {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .semester h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .semester h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cool bubble effect background -->
+    <div class="bubble-background">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+   
+
+    <!-- Semester 1 -->
+    <div class="semester semester-1">
+        <h2>Choose</h2>
+        <div class="subjects">
+            <div class="subject-item"><a href="class 11 account.html">Account </a></div>
+            <br>
+            <div class="subject-item"><a href="class 11 eco.html">Econamics</a></div>
+            <br>
+            <div class="subject-item"><a href="class 11 Computer.html">Computer science</a></div>
+            <br>
+            <div class="subject-item"><a href="class 11 social.html">Social</a></div>
+            <br>
+            <div class="subject-item"><a href="class 11 nep.html">Nepali</a></div>
+            <br>
+            <div class="subject-item"><a href="class 11 english.html">English</a></div>
+        </div>
+
+        
+    </div>
+    
+    <!-- Add more semesters below... -->
+
+</body>
+</html>
